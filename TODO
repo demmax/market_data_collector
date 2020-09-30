@@ -1,0 +1,8 @@
+ V add add_ticker for DataSource
+ - check error handling in TinkoffDataSource: connectivity errors, errorneous structs
+ - add DataProcessor.go
+ - fill MarketData struct
+ - add generic DataStorage
+ - implement PostgresDataStorage
+ - figure out what commands are necessary
+ - implement command receive interface

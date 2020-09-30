@@ -35,7 +35,10 @@ func (sourceManager *dataSourceManager) Run() {
 			sourceParams := params.(map[string]interface{})
 			dataSource := data_sources.NewTinkoffDataSource(sourceManager.dataChannel, sourceParams)
 			sourceManager.dataSources = append(sourceManager.dataSources, dataSource)
-			dataSource.Start()
+			err := dataSource.Start()
+			if err != nil {
+				utils.Logger.Panicf("Can't create source: %s", err)
+			}
 		default:
 			panic("No such source!")
 		}

@@ -1,5 +1,7 @@
 package data_sources
 
 type DataSource interface {
-	Start()
+	Start() error
+	Stop()
+	AddTicker(ticker string) error
 }

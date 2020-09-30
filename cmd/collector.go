@@ -2,19 +2,21 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"github.com/demmax/market_data_collector/internal"
 	"github.com/demmax/market_data_collector/internal/utils"
 	"log"
 	"os"
-	"time"
 )
 
 func main() {
-	configFileName := "./config.json"
-	file, err := os.Open(configFileName)
+	configFileName := flag.String("config", "config.json", "Config file to use")
+	file, err := os.Open(*configFileName)
 
 	logger := utils.Logger
+	logger.SetReportCaller(true)
+	log.SetOutput(os.Stdout)
 
 	if err != nil {
 		fmt.Println(err)
@@ -29,16 +31,13 @@ func main() {
 		logger.Fatalln(s)
 	}
 
-	log.Printf("Using config version %s", config["version"])
+	logger.Printf("Using config version %s", config["version"])
 
 	ctrlChan := make(chan string)
 	dataChan := make(chan utils.MarketData)
 
 	dataSourcesCfg := config["data_sources"].(map[string]interface{})
-	dataManager := internal.NewDataSourceManager(ctrlChan, dataChan, dataSourcesCfg)
+	dataSourceManager := internal.NewDataSourceManager(ctrlChan, dataChan, dataSourcesCfg)
 
-	go dataManager.Run()
-	//ctrlChan <- "exit"
-	time.Sleep(3 * time.Second)
-	logger.Println("end")
+	dataSourceManager.Run()
 }

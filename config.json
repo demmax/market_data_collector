@@ -3,10 +3,10 @@
 
   "data_sources": {
     "tinkoff": {
-      "token": "",
+      "token": "t.C7I8dvLkSGpdLsJYdOeLsqsQ_drTdHmXVo7mF4lzRrrFKZxafy0lPOfRhAet3qyhV08mYRSdKA9MO7C0Cf4-Gw",
       "logger_prefix": "[tinkoff-open-api]",
-      "tickers": ["YNDX"],
-      "interval": 1000,
+      "tickers": ["YNDX", "POLY", "PLZL"],
+      "interval": 60,
       "orderbook_depth": 5
     }
   },
