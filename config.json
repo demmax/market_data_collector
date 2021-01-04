@@ -3,7 +3,7 @@
 
   "data_sources": {
     "tinkoff": {
-      "token": "t.C7I8dvLkSGpdLsJYdOeLsqsQ_drTdHmXVo7mF4lzRrrFKZxafy0lPOfRhAet3qyhV08mYRSdKA9MO7C0Cf4-Gw",
+      "token": "t.BJSLQYjHzsDZMNOviq0q3H1eA_rfGIhZyR_iNEWJx_z8XQ23g1rTDDtR9ki_iOxuhjIHFnQGd6sDcMsgqH7QGQ",
       "logger_prefix": "[tinkoff-open-api]",
       "tickers": ["YNDX", "POLY", "PLZL"],
       "interval": 60,
