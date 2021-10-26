@@ -180,7 +180,7 @@ func getFigiesByTicker(token string, ticker string) ([]string, error) {
 	var figies []string
 
 	restClient := sdk.NewRestClient(token)
-	instruments, err := restClient.SearchInstrumentByTicker(context.TODO(), ticker)
+	instruments, err := restClient.InstrumentByTicker(context.TODO(), ticker)
 	if err != nil {
 		return nil, err
 	}
@@ -201,8 +201,6 @@ func getFigiesByTickers(token string, tickers []string) ([]string, error) {
 		if err != nil {
 			return nil, err
 		}
-
-		logger.Infof("FIGIes for ticker '%s': %v", ticker, figies)
 		allFigies = append(allFigies, figies...)
 	}
 

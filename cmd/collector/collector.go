@@ -15,7 +15,7 @@ func main() {
 	file, err := os.Open(*configFileName)
 
 	logger := utils.Logger
-	logger.SetReportCaller(true)
+	//logger.SetReportCaller(true)
 	log.SetOutput(os.Stdout)
 
 	if err != nil {
